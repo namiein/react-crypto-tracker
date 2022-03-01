@@ -10,7 +10,9 @@ import { Title, Container, Header, CoinsList, Coin, Img } from "assets/styles";
 import LoaderComponent from "components/Loader";
 
 function Coins() {
-    const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
+    const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins, {
+        staleTime: 10 * 60 * 1000
+    });
 
     return (
         <Container>

@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, keyframes } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -7,22 +6,217 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        margin: 0;
+        padding:0;
         font-weight: 300;
-        background-color:${(props) => props.theme.bgColor};
-        color:${(props) => props.theme.textColor};
         line-height: 1.2;    
+        color:${(props) => props.theme.textColor};
+        background-color:${(props) => props.theme.bgColor};
     }
 
     a {
-        text-decoration:none;
+        text-decoration: none;
         color: inherit;
     }
 `;
 
+export const Main = styled.div`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const LoadingSection = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 20px;
+`;
+
+const BoucingAnimation = keyframes`
+    0% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+        color: gold;
+    }
+`;
+
+export const LoadingStatus = styled.p`
+    font-size: 24px;
+    font-family: fantasy;
+    letter-spacing: 1.5px;
+
+    & span {
+        display: inline-block;
+        animation: ${BoucingAnimation} 1.5s infinite;
+
+        &:nth-of-type(2) {
+            animation-delay: 0.1s;
+        }
+
+        &:last-of-type {
+            animation-delay: 0.22s;
+        }
+    }
+
+    & strong {
+        margin-left: 20px;
+        color: gold;
+    }
+`;
+
+const SpinnerAnimation = keyframes`
+    0% { 
+        transform: rotate(0deg); 
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+    
+    100% { 
+        transform:rotate(360deg); 
+        opacity: 0;
+    }
+`;
+
+export const CoinOuter = styled.div`
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: gold;
+    border-radius: 50%;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 180px;
+        height: 180px;
+        border: solid 5px transparent;
+        border-bottom-color: white;
+        border-radius: 50%;
+        will-change: transform;
+        animation: ${SpinnerAnimation} 1.5s linear infinite;
+    }
+`;
+
+const PulseAnimation = keyframes`
+    0% {
+        transform: scale(0.8)
+    }
+
+    50% {
+        transform: scale(1.1)
+    }
+
+    100% { 
+        transform: scale(0.8)
+    }
+`;
+
+export const CoinInner = styled.div`
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+
+    & > div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    & > div {
+        will-change: transform;
+        animation: ${PulseAnimation} 1.5s ease-in-out infinite;
+    }
+`;
+
+export const FirstBlock = styled.div`
+    position: absolute;
+    top: 21px;
+    right: 30px;
+    width: 15px;
+    height: 15px;
+    background: gold;
+    transform: rotate(20deg);
+`;
+
+export const SecondBlock = styled.div`
+    position: absolute;
+    top: 12px;
+    left: 80px;
+    height: 16px;
+    width: 15px;
+    background: gold;
+    transform: rotate(20deg);
+`;
+
+export const ThirdBlock = styled.div`
+    position: absolute;
+    bottom: 18px;
+    left: 40px;
+    width: 15px;
+    height: 16px;
+    background: gold;
+    transform: rotate(20deg);
+`;
+
+export const LastBlock = styled.div`
+    position: absolute;
+    bottom: 10px;
+    right: 70px;
+    width: 15px;
+    height: 15px;
+    background: gold;
+    transform: rotate(20deg);
+`;
+
+export const OuterCoin = styled.div`
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-left: 25px;
+    background: gold;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 30%;
+    transform: rotate(20deg);
+`;
+
+export const InnerCoin = styled.div`
+    position: absolute;
+    top: 25px;
+    right: -10px;
+    width: 65px;
+    height: 50px;
+    background: white;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+`;
+
 export const Container = styled.div`
-    padding: 0px 20px;
     max-width: 480px;
     margin: 0 auto;
+    padding: 0px 20px;
 `;
 
 export const Header = styled.header`
