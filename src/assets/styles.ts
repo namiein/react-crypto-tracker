@@ -18,6 +18,15 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+
+    input{
+        all: unset;
+    }
+
+    ul { 
+        padding : 0;
+        margin: 0;
+    }
 `;
 
 export const Main = styled.div`
@@ -213,8 +222,8 @@ export const InnerCoin = styled.div`
     border-bottom-right-radius: 50%;
 `;
 
+// COINS
 export const Container = styled.div`
-    max-width: 480px;
     margin: 0 auto;
     padding: 0px 20px;
 `;
@@ -226,19 +235,88 @@ export const Header = styled.header`
     align-items: center;
 `;
 
-export const CoinsList = styled.ul``;
+export const Input = styled.input`
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1480px;
+    display: block;
+    margin: 0 auto 20px;
+    padding: 8px 10px;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    color: ${(props) => props.theme.bgColor};
+`;
+
+export const CoinsList = styled.ul`
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+`;
 
 export const Coin = styled.li`
-    background-color: white;
+    min-width: 250px;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
     color: ${(props) => props.theme.bgColor};
     border-radius: 15px;
-    margin-bottom: 10px;
+    background-color: white;
+    padding: 20px;
+
+    details {
+        & > div:first-of-type {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            & > span {
+                font-family: inherit;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 5px 10px;
+                border: 1px solid gold;
+                border-radius: 25px;
+                background: white;
+                strong {
+                    font-family: fantasy;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        & > div:last-of-type {
+            background: ${(props) => props.theme.bgColor};
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    }
+
+    details > summary {
+        font-family: fantasy;
+        list-style: none;
+        cursor: pointer;
+    }
+
     a {
+        margin-top: 20px;
         display: flex;
         align-items: center;
-        padding: 20px;
+        font-weight: 500;
+        font-family: fantasy;
         transition: color 0.2s ease-in;
     }
+
     &:hover {
         a {
             color: ${(props) => props.theme.accentColor};

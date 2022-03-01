@@ -24,7 +24,7 @@ export default function Loading() {
 
     React.useEffect(() => {
         queryClient.prefetchQuery(["allCoins"], fetchCoins, {
-            staleTime: 10 * 60 * 1000
+            staleTime: 60 * 60 * 1000
         });
     }, [queryClient]);
 
