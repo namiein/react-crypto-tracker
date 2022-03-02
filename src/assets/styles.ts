@@ -230,6 +230,8 @@ export const Container = styled.div`
 
 export const Header = styled.header`
     height: 15vh;
+    font-family: fantasy;
+    letter-spacing: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,7 +243,7 @@ export const Input = styled.input`
     max-width: 1480px;
     display: block;
     margin: 0 auto 20px;
-    padding: 8px 10px;
+    padding: 8px 20px;
     background-color: white;
     border-radius: 15px;
     font-size: 14px;
@@ -296,9 +298,18 @@ export const Coin = styled.li`
         }
 
         & > div:last-of-type {
-            background: ${(props) => props.theme.bgColor};
-            border-radius: 4px;
             margin-top: 20px;
+            border-radius: 4px;
+            background: ${(props) => props.theme.bgColor};
+            & > span {
+                min-height: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: gold;
+                font-weight: 600;
+                font-family: fantasy;
+            }
         }
     }
 

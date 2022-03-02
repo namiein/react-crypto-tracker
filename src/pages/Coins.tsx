@@ -47,11 +47,7 @@ function Coins() {
                         <Coin key={coin.id}>
                             <details>
                                 <summary onClick={() => setSelected(coin.id)}>{coin.name}</summary>
-                                <Link
-                                    to={{
-                                        pathname: `/${coin.id}`,
-                                        state: { name: coin.name }
-                                    }}>
+                                <Link to={{ pathname: `/${coin.id}`, state: { name: coin.name } }}>
                                     <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
                                     {coin.name} &rarr;
                                 </Link>
@@ -69,13 +65,7 @@ function Coins() {
                                         Type: <strong>{coin.type}</strong>
                                     </span>
                                 </div>
-                                {chartQuery.isLoading ? (
-                                    <LoaderComponent />
-                                ) : (
-                                    <div>
-                                        <LineChart data={chartQuery.data} />
-                                    </div>
-                                )}
+                                <div>{chartQuery.isLoading ? <LoaderComponent /> : <LineChart data={chartQuery.data} />}</div>
                             </details>
                         </Coin>
                     ))}
@@ -84,4 +74,5 @@ function Coins() {
         </Container>
     );
 }
+
 export default Coins;
