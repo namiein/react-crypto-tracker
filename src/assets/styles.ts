@@ -223,7 +223,7 @@ export const InnerCoin = styled.div`
 `;
 
 // COINS
-export const Container = styled.div`
+export const Container = styled.main`
     margin: 0 auto;
     padding: 0px 20px;
 `;
@@ -351,6 +351,11 @@ export const Img = styled.img`
     margin-right: 10px;
 `;
 
+export const OverviewSection = styled.section`
+    max-width: 1600px;
+    margin: 0 auto;
+`;
+
 export const Overview = styled.div`
     display: flex;
     justify-content: space-between;
@@ -366,15 +371,25 @@ export const OverviewItem = styled.div`
     width: 33%;
 
     span:first-child {
+        color: gold;
         font-size: 10px;
-        font-weight: 400;
+        font-weight: 500;
         text-transform: uppercase;
         margin-bottom: 5px;
+    }
+    span:last-child {
+        font-family: fantasy;
     }
 `;
 
 export const Description = styled.p`
-    margin: 20px 0px;
+    margin: 20px;
+    font-weight: 500;
+`;
+
+export const TabSection = styled.section`
+    max-width: 1600px;
+    margin: 0 auto;
 `;
 
 export const Tabs = styled.div`
@@ -385,14 +400,23 @@ export const Tabs = styled.div`
 `;
 
 export const Tab = styled.span<{ isActive: boolean }>`
+    padding: 20px;
     text-align: center;
     text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: fantasy;
+    letter-spacing: 2px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     color: ${(props) => (props.isActive ? props.theme.accentColor : props.theme.textColor)};
     a {
         display: block;
     }
+`;
+
+export const ChartWrapper = styled.div`
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
 `;

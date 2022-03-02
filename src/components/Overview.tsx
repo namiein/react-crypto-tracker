@@ -1,10 +1,10 @@
 import React from "react";
-import { Overview, OverviewItem, Description } from "assets/styles";
+import { Overview, OverviewItem, Description, OverviewSection } from "assets/styles";
 import { OverviewProps } from "types";
 
 export default function OverviewComponent({ infoData, tickersData }: OverviewProps) {
     return (
-        <>
+        <OverviewSection>
             <Overview>
                 <OverviewItem>
                     <span>Rank:</span>
@@ -23,13 +23,13 @@ export default function OverviewComponent({ infoData, tickersData }: OverviewPro
             <Overview>
                 <OverviewItem>
                     <span>Total Suply:</span>
-                    <span>{tickersData?.total_supply}</span>
+                    <span>{tickersData?.total_supply?.toLocaleString()}</span>
                 </OverviewItem>
                 <OverviewItem>
                     <span>Max Supply:</span>
-                    <span>{tickersData?.max_supply}</span>
+                    <span>{tickersData?.max_supply?.toLocaleString()}</span>
                 </OverviewItem>
             </Overview>
-        </>
+        </OverviewSection>
     );
 }
