@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { useQuery } from "react-query";
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 import { fetchCoinInfo, fetchCoinTickers } from "api";
 import { InfoData, PriceData, RouteParams, RouteState } from "types";
@@ -28,7 +28,9 @@ function Coin() {
                 <title>{state?.name ? state.name : loading ? "Loading..." : infoData?.name}</title>
             </Helmet>
             <Header>
-                <Title>{state?.name ? state.name : loading ? "Loading..." : infoData?.name}</Title>
+                <Link to="/coins">
+                    <Title>{state?.name ? state.name : loading ? "Loading..." : infoData?.name}</Title>
+                </Link>
             </Header>
             {loading ? (
                 <LoaderComponent />

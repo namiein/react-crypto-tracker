@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -15,7 +15,7 @@ function Coins() {
         staleTime: 60 * 60 * 1000
     });
 
-    const [selected, setSelected] = React.useState("btc-bitcoin");
+    const [selected, setSelected] = React.useState("");
     const [search, setSearch] = React.useState("");
     const [searchResult, setSearchResult] = React.useState<ICoin[]>([]);
 
@@ -24,12 +24,14 @@ function Coins() {
         staleTime: 5 * 60 * 1000
     });
 
-    useEffect(() => {
+    const onChange = (value: string) => {
+        setSelected("");
+        setSearch(value);
         if (data && search.length > 2) {
             const filtered = data.filter((coin) => coin.name.toLowerCase().includes(search) && coin);
             setSearchResult(filtered);
         }
-    }, [search, data]);
+    };
 
     return (
         <Container>
@@ -39,7 +41,7 @@ function Coins() {
             <Header>
                 <Title>Crypto Tracker</Title>
             </Header>
-            <Input autoComplete="off" autoCorrect="off" autoCapitalize="off" type="search" name="search" placeholder="Search Your Coin..." onChange={(e) => setSearch(e.target.value)} />
+            <Input autoComplete="off" autoCorrect="off" autoCapitalize="off" type="search" name="search" placeholder="Search Your Coin..." onChange={(e) => onChange(e.target.value)} />
             {isLoading ? (
                 <LoaderComponent />
             ) : (
