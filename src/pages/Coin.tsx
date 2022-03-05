@@ -17,7 +17,7 @@ function Coin() {
 
     const { isLoading: infoLoading, data: infoData } = useQuery<InfoData>(["info", coinId], () => fetchCoinInfo(coinId));
     const { isLoading: tickersLoading, data: tickersData } = useQuery<PriceData>(["tickers", coinId], () => fetchCoinTickers(coinId), {
-        refetchInterval: 5000
+        refetchInterval: 1000 * 60 * 1
     });
 
     const loading = infoLoading || tickersLoading;

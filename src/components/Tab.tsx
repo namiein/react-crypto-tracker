@@ -15,21 +15,23 @@ export default function TabComponent() {
     return (
         <TabSection>
             <Tabs>
-                <Tab isActive={chartMatch !== null}>
+                <Tab isActive={!!chartMatch?.isExact}>
                     <Link to={`/${coinId}`}>Chart</Link>
                 </Tab>
-                <Tab isActive={priceMatch !== null}>
+                <Tab isActive={!!priceMatch?.isExact}>
                     <Link to={`/${coinId}/price`}>Price</Link>
                 </Tab>
             </Tabs>
             <Switch>
-                <Route exact path="/:coinId">
+                <Route exact path="/:coinId/price">
+                    <ChartWrapper>
+                        <Price coinId={coinId} />
+                    </ChartWrapper>
+                </Route>
+                <Route path="/:coinId">
                     <ChartWrapper>
                         <Chart coinId={coinId} />
                     </ChartWrapper>
-                </Route>
-                <Route exact path="/:coinId/price">
-                    <Price />
                 </Route>
             </Switch>
         </TabSection>

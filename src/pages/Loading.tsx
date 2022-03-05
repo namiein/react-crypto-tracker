@@ -16,7 +16,7 @@ export default function Loading() {
         if (percentage < 100) {
             timerId = setInterval(() => setPercentage((prev) => prev + 1), 150);
         } else if (percentage === 100) {
-            history.replace("/");
+            history.replace("/coins");
         }
 
         return () => clearInterval(timerId);
