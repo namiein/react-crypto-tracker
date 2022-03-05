@@ -361,9 +361,19 @@ export const OverviewSection = styled.section`
 export const Overview = styled.div`
     display: flex;
     justify-content: space-between;
+    row-gap: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
     border-radius: 10px;
+
+    &:last-of-type {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        & div {
+            max-width: 120px;
+        }
+    }
 `;
 
 export const OverviewItem = styled.div`

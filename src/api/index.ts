@@ -10,7 +10,7 @@ export async function fetchCoinInfo(coinId: string) {
 }
 
 export async function fetchCoinTickers(coinId: string) {
-    return (await fetch(`${BASE_URL}/tickers/${coinId}`)).json();
+    return (await fetch(`${BASE_URL}/tickers/${coinId}?quotes=KRW`)).json();
 }
 
 export async function fetchCoinHistory(coinId: string) {

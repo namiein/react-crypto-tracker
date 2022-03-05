@@ -56,7 +56,7 @@ export interface PriceData {
     first_data_at: string;
     last_updated: string;
     quotes: {
-        USD: {
+        KRW: {
             ath_date: string;
             ath_price: number;
             market_cap: number;
