@@ -15,7 +15,7 @@ function Coins() {
         staleTime: 60 * 60 * 1000
     });
 
-    const [selected, setSelected] = React.useState("");
+    const [selected, setSelected] = React.useState("btc-bitcoin");
     const [search, setSearch] = React.useState("");
     const [searchResult, setSearchResult] = React.useState<ICoin[]>([]);
 
@@ -51,7 +51,7 @@ function Coins() {
                             <details open={selected === coin.id}>
                                 <summary onMouseEnter={() => setSelected(coin.id)}>{coin.name}</summary>
                                 <Link to={{ pathname: `/${coin.id}`, state: { name: coin.name } }}>
-                                    <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
+                                    <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} alt={coin.id} />
                                     {coin.name} &rarr;
                                 </Link>
                                 <div>
