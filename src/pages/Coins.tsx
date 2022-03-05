@@ -27,7 +27,7 @@ function Coins() {
     const onChange = (value: string) => {
         setSelected("");
         setSearch(value);
-        if (data && search.length > 2) {
+        if (data && search.length > 1) {
             const filtered = data.filter((coin) => coin.name.toLowerCase().includes(search) && coin);
             setSearchResult(filtered);
         }
@@ -46,7 +46,7 @@ function Coins() {
                 <LoaderComponent />
             ) : (
                 <CoinsList>
-                    {(data && search.length > 3 ? searchResult : data)?.slice(0, 100).map((coin) => (
+                    {(data && search.length > 2 ? searchResult : data)?.slice(0, 100).map((coin) => (
                         <Coin key={coin.id}>
                             <details open={selected === coin.id}>
                                 <summary onMouseEnter={() => setSelected(coin.id)}>{coin.name}</summary>
