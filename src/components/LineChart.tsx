@@ -41,9 +41,9 @@ export default function Chart({ data }: ChartDataProps) {
                 },
                 fill: {
                     type: "gradient",
-                    gradient: { gradientToColors: ["#0be881"], stops: [0, 100] }
+                    gradient: { gradientToColors: ["#fdf8e1"], stops: [0, 100] }
                 },
-                colors: ["#0fbcf9"],
+                colors: ["#ffd100"],
                 tooltip: {
                     y: {
                         formatter: (value) => `$${value.toFixed(2)}`

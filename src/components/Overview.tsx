@@ -12,7 +12,7 @@ export default function OverviewComponent({ infoData, tickersData }: OverviewPro
                 </OverviewItem>
                 <OverviewItem>
                     <span>Symbol:</span>
-                    <span>${infoData?.symbol}</span>
+                    <span>{infoData?.symbol}</span>
                 </OverviewItem>
                 <OverviewItem>
                     <span>Price:</span>

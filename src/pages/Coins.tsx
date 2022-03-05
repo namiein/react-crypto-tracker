@@ -20,6 +20,7 @@ function Coins() {
     const [searchResult, setSearchResult] = React.useState<ICoin[]>([]);
 
     const chartQuery = useQuery<IHistorical[]>(["ohlcv", selected], () => fetchCoinHistory(selected), {
+        enabled: !!selected,
         staleTime: 5 * 60 * 1000
     });
 
@@ -45,8 +46,8 @@ function Coins() {
                 <CoinsList>
                     {(data && search.length > 3 ? searchResult : data)?.slice(0, 100).map((coin) => (
                         <Coin key={coin.id}>
-                            <details>
-                                <summary onClick={() => setSelected(coin.id)}>{coin.name}</summary>
+                            <details open={selected === coin.id}>
+                                <summary onMouseEnter={() => setSelected(coin.id)}>{coin.name}</summary>
                                 <Link to={{ pathname: `/${coin.id}`, state: { name: coin.name } }}>
                                     <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
                                     {coin.name} &rarr;
