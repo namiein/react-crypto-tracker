@@ -2,12 +2,12 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
-
 import { fetchCoinHistory, fetchCoins } from "api";
-import { ICoin, IHistorical } from "types";
-import { Title, Container, Header, CoinsList, Coin, Img, Input } from "assets/styles";
 
-import LoaderComponent from "components/Loader";
+import { Title, Container, Header, CoinsList, Coin, Img, Input } from "assets/styles";
+import { ICoin, IHistorical } from "types";
+
+import Loader from "components/Loader";
 import LineChart from "components/LineChart";
 import Footer from "components/Footer";
 
@@ -44,7 +44,7 @@ function Coins() {
             </Header>
             <Input autoComplete="off" autoCorrect="off" autoCapitalize="off" type="search" name="search" placeholder="Search Your Coin..." onChange={(e) => onChange(e.target.value)} />
             {isLoading ? (
-                <LoaderComponent />
+                <Loader />
             ) : (
                 <CoinsList>
                     {(data && search.length > 2 ? searchResult : data)?.slice(0, 100).map((coin) => (
@@ -71,7 +71,7 @@ function Coins() {
                                                 Type: <strong>{coin.type}</strong>
                                             </span>
                                         </div>
-                                        <div>{chartQuery.isLoading ? <LoaderComponent /> : <LineChart data={chartQuery.data} />}</div>
+                                        <div>{chartQuery.isLoading ? <Loader /> : <LineChart data={chartQuery.data} />}</div>
                                     </>
                                 )}
                             </details>

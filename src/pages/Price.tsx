@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { fetchHistoryTickers } from "api";
 import { ChartProps, IHistorical } from "types";
 
-import LoaderComponent from "components/Loader";
+import Loader from "components/Loader";
 import CandleStick from "components/CandleStick";
 
 function Price({ coinId }: ChartProps) {
@@ -11,7 +11,7 @@ function Price({ coinId }: ChartProps) {
         refetchInterval: 1000 * 60 * 1
     });
 
-    return <div>{isLoading ? <LoaderComponent /> : <CandleStick data={data} />}</div>;
+    return <div>{isLoading ? <Loader /> : <CandleStick data={data} />}</div>;
 }
 
 export default Price;

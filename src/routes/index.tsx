@@ -6,7 +6,7 @@ import Loading from "pages/Loading";
 
 function Router() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route exact path="/">
                     <Loading />

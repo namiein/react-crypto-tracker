@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { fetchCoinHistory } from "api";
 import { ChartProps, IHistorical } from "types";
 
-import LoaderComponent from "components/Loader";
+import Loader from "components/Loader";
 import LineChart from "components/LineChart";
 
 function Chart({ coinId }: ChartProps) {
@@ -11,7 +11,7 @@ function Chart({ coinId }: ChartProps) {
         refetchInterval: 1000 * 60 * 1
     });
 
-    return <div>{isLoading ? <LoaderComponent /> : <LineChart data={data} />}</div>;
+    return <div>{isLoading ? <Loader /> : <LineChart data={data} />}</div>;
 }
 
 export default Chart;

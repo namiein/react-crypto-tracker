@@ -1,15 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useQuery } from "react-query";
 import { Link, useLocation, useParams } from "react-router-dom";
-
+import { useQuery } from "react-query";
 import { fetchCoinInfo, fetchCoinTickers } from "api";
+
+import { Container, Header, Title } from "assets/styles";
 import { InfoData, PriceData, RouteParams, RouteState } from "types";
 
-import TabComponent from "components/Tab";
-import { Container, Header, Title } from "assets/styles";
-import OverviewComponent from "components/Overview";
-import LoaderComponent from "components/Loader";
+import Loader from "components/Loader";
+import OverView from "components/Overview";
+import Tab from "components/Tab";
 import Footer from "components/Footer";
 
 function Coin() {
@@ -34,11 +34,11 @@ function Coin() {
                 </Link>
             </Header>
             {loading ? (
-                <LoaderComponent />
+                <Loader />
             ) : (
                 <>
-                    <OverviewComponent infoData={infoData} tickersData={tickersData} />
-                    <TabComponent />
+                    <OverView infoData={infoData} tickersData={tickersData} />
+                    <Tab />
                 </>
             )}
             <Footer />
