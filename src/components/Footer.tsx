@@ -5,7 +5,7 @@ export default function FooterComponent() {
     return (
         <Footer>
             Made with ❤️
-            <p>Created with Create-React-App, TypeScript, https://api.coinpaprika.com/, Styled-Components, react-router-dom v5, Apexcharts, react-helmet</p>
+            <p>Created with Create-React-App, TypeScript, https://api.coinpaprika.com/, Styled-Components, react-router-dom v5, Apexcharts, react-helmet, react-query</p>
         </Footer>
     );
 }
