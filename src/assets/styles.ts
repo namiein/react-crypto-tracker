@@ -10,13 +10,13 @@ export const GlobalStyle = createGlobalStyle`
         padding:0;
         font-weight: 300;
         line-height: 1.2;    
-        color:${(props) => props.theme.textColor};
-        background-color:${(props) => props.theme.bgColor};
+        color: ${(props) => props.theme.textColor};
+        background-color: ${(props) => props.theme.bgColor};
     }
 
     a {
-        text-decoration: none;
         color: inherit;
+        text-decoration: none;
     }
 
     input{
@@ -24,11 +24,12 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ul { 
-        padding : 0;
         margin: 0;
+        padding : 0;
     }
 `;
 
+// Loading.tsx
 export const Main = styled.div`
     width: 100%;
     height: 100vh;
@@ -51,8 +52,8 @@ const BoucingAnimation = keyframes`
     }
 
     100% {
+        color: #ffd100;
         transform: translateY(0px);
-        color: gold;
     }
 `;
 
@@ -61,7 +62,7 @@ export const LoadingStatus = styled.p`
     font-family: fantasy;
     letter-spacing: 1.5px;
 
-    & span {
+    span {
         display: inline-block;
         animation: ${BoucingAnimation} 1.5s infinite;
 
@@ -74,7 +75,7 @@ export const LoadingStatus = styled.p`
         }
     }
 
-    & strong {
+    strong {
         margin-left: 20px;
         color: gold;
     }
@@ -82,8 +83,8 @@ export const LoadingStatus = styled.p`
 
 const SpinnerAnimation = keyframes`
     0% { 
-        transform: rotate(0deg); 
         opacity: 0;
+        transform: rotate(0deg); 
     }
 
     50% {
@@ -91,8 +92,8 @@ const SpinnerAnimation = keyframes`
     }
     
     100% { 
-        transform:rotate(360deg); 
         opacity: 0;
+        transform: rotate(360deg); 
     }
 `;
 
@@ -103,7 +104,7 @@ export const CoinOuter = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: gold;
+    background: ${(props) => props.theme.accentColor};
     border-radius: 50%;
 
     &::after {
@@ -113,9 +114,9 @@ export const CoinOuter = styled.div`
         left: 5px;
         width: 180px;
         height: 180px;
-        border: solid 5px transparent;
-        border-bottom-color: white;
         border-radius: 50%;
+        border: solid 5px transparent;
+        border-bottom-color: #ffffff;
         will-change: transform;
         animation: ${SpinnerAnimation} 1.5s linear infinite;
     }
@@ -138,7 +139,7 @@ const PulseAnimation = keyframes`
 export const CoinInner = styled.div`
     width: 150px;
     height: 150px;
-    background: white;
+    background: #ffffff;
     border-radius: 50%;
 
     & > div {
@@ -162,7 +163,7 @@ export const FirstBlock = styled.div`
     right: 30px;
     width: 15px;
     height: 15px;
-    background: gold;
+    background: ${(props) => props.theme.accentColor};
     transform: rotate(20deg);
 `;
 
@@ -172,7 +173,7 @@ export const SecondBlock = styled.div`
     left: 80px;
     height: 16px;
     width: 15px;
-    background: gold;
+    background: ${(props) => props.theme.accentColor};
     transform: rotate(20deg);
 `;
 
@@ -182,7 +183,7 @@ export const ThirdBlock = styled.div`
     left: 40px;
     width: 15px;
     height: 16px;
-    background: gold;
+    background: ${(props) => props.theme.accentColor};
     transform: rotate(20deg);
 `;
 
@@ -192,7 +193,7 @@ export const LastBlock = styled.div`
     right: 70px;
     width: 15px;
     height: 15px;
-    background: gold;
+    background: ${(props) => props.theme.accentColor};
     transform: rotate(20deg);
 `;
 
@@ -201,11 +202,11 @@ export const OuterCoin = styled.div`
     width: 100px;
     height: 100px;
     margin-left: 25px;
-    background: gold;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     border-top-right-radius: 30%;
     border-bottom-right-radius: 30%;
+    background: ${(props) => props.theme.accentColor};
     transform: rotate(20deg);
 `;
 
@@ -215,14 +216,14 @@ export const InnerCoin = styled.div`
     right: -10px;
     width: 65px;
     height: 50px;
-    background: white;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
+    background: #ffffff;
 `;
 
-// COINS
+// COINS.tsx
 export const Container = styled.main`
     margin: 0 auto;
     padding: 0px 20px;
@@ -230,11 +231,11 @@ export const Container = styled.main`
 
 export const Header = styled.header`
     height: 15vh;
-    font-family: fantasy;
-    letter-spacing: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: fantasy;
+    letter-spacing: 2px;
 `;
 
 export const Input = styled.input`
@@ -244,22 +245,22 @@ export const Input = styled.input`
     display: block;
     margin: 0 auto 20px;
     padding: 8px 20px;
-    background-color: white;
-    border-radius: 15px;
     font-size: 14px;
     font-weight: 600;
     line-height: 24px;
     color: ${(props) => props.theme.bgColor};
+    border-radius: 15px;
+    background-color: #ffffff;
 `;
 
 export const CoinsList = styled.ul`
     max-width: 1600px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    margin: 0 auto;
 `;
 
 export const Coin = styled.li`
@@ -267,20 +268,20 @@ export const Coin = styled.li`
     width: 100%;
     max-width: 480px;
     margin-bottom: 10px;
+    padding: 20px;
     letter-spacing: 1px;
     color: ${(props) => props.theme.bgColor};
     border-radius: 15px;
-    background-color: white;
-    padding: 20px;
+    background-color: #ffffff;
 
     details {
         & > div:first-of-type {
-            margin-top: 20px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 10px;
+            margin-top: 20px;
 
             & > span {
                 font-family: inherit;
@@ -289,7 +290,7 @@ export const Coin = styled.li`
                 padding: 5px 10px;
                 border: 1px solid gold;
                 border-radius: 25px;
-                background: white;
+                background: #ffffff;
                 strong {
                     font-family: fantasy;
                     font-weight: 500;
@@ -301,6 +302,7 @@ export const Coin = styled.li`
             margin-top: 20px;
             border-radius: 4px;
             background: ${(props) => props.theme.bgColor};
+
             & > span {
                 min-height: 150px;
                 max-height: 300px;
@@ -314,7 +316,7 @@ export const Coin = styled.li`
         }
     }
 
-    details > summary {
+    details summary {
         font-family: fantasy;
         list-style: none;
         cursor: pointer;
@@ -336,6 +338,7 @@ export const Coin = styled.li`
     }
 `;
 
+// COIN.tsx
 export const Title = styled.h1`
     font-size: 48px;
     color: ${(props) => props.theme.accentColor};
@@ -366,33 +369,35 @@ export const Overview = styled.div`
     display: flex;
     justify-content: space-between;
     row-gap: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
     border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
 
     &:last-of-type {
-        margin-top: 20px;
         flex-wrap: wrap;
         justify-content: space-around;
-        & div {
+        margin-top: 20px;
+
+        div {
             max-width: 120px;
         }
     }
 `;
 
 export const OverviewItem = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 33%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
     span:first-child {
-        color: gold;
+        margin-bottom: 5px;
+        color: ${(props) => props.theme.accentColor};
         font-size: 10px;
         font-weight: 500;
         text-transform: uppercase;
-        margin-bottom: 5px;
     }
+
     span:last-child {
         font-family: fantasy;
     }
@@ -409,9 +414,9 @@ export const TabSection = styled.section`
 `;
 
 export const Tabs = styled.div`
+    margin: 25px 0px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 25px 0px;
     gap: 10px;
 `;
 
@@ -423,9 +428,10 @@ export const Tab = styled.span<{ isActive: boolean }>`
     font-weight: 600;
     font-family: fantasy;
     letter-spacing: 2px;
-    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
     color: ${(props) => (props.isActive ? props.theme.accentColor : props.theme.textColor)};
+
     a {
         display: block;
     }
@@ -433,10 +439,11 @@ export const Tab = styled.span<{ isActive: boolean }>`
 
 export const ChartWrapper = styled.div`
     margin-bottom: 30px;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 10px;
 `;
 
+// Footer.tsx
 export const Footer = styled.footer`
     padding: 20px;
     text-align: center;
