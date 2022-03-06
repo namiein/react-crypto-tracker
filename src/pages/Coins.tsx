@@ -9,6 +9,7 @@ import { Title, Container, Header, CoinsList, Coin, Img, Input } from "assets/st
 
 import LoaderComponent from "components/Loader";
 import LineChart from "components/LineChart";
+import Footer from "components/Footer";
 
 function Coins() {
     const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins, {
@@ -74,6 +75,7 @@ function Coins() {
                     ))}
                 </CoinsList>
             )}
+            <Footer />
         </Container>
     );
 }

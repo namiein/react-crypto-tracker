@@ -303,6 +303,7 @@ export const Coin = styled.li`
             background: ${(props) => props.theme.bgColor};
             & > span {
                 min-height: 150px;
+                max-height: 300px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -342,9 +343,12 @@ export const Title = styled.h1`
 
 export const Loader = styled.span`
     width: 100%;
-    height: 100%;
-    text-align: center;
-    display: block;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${(props) => props.theme.accentColor};
+    font-weight: 600;
 `;
 
 export const Img = styled.img`

@@ -10,6 +10,7 @@ import TabComponent from "components/Tab";
 import { Container, Header, Title } from "assets/styles";
 import OverviewComponent from "components/Overview";
 import LoaderComponent from "components/Loader";
+import Footer from "components/Footer";
 
 function Coin() {
     const { coinId } = useParams<RouteParams>();
@@ -40,6 +41,7 @@ function Coin() {
                     <TabComponent />
                 </>
             )}
+            <Footer />
         </Container>
     );
 }
