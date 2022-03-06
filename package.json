@@ -1,8 +1,8 @@
 {
     "name": "react-crypto-tracker",
     "version": "0.1.0",
-    "private": true,
-    "homepage": "https://github.com/namiein/react-crypto-tracker",
+    "private": false,
+    "homepage": "https://namiein.github.io/react-crypto-tracker",
     "dependencies": {
         "@types/node": "^16.7.13",
         "@types/react": "^17.0.20",
