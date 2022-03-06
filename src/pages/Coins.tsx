@@ -51,25 +51,29 @@ function Coins() {
                         <Coin key={coin.id}>
                             <details open={selected === coin.id}>
                                 <summary onMouseEnter={() => setSelected(coin.id)}>{coin.name}</summary>
-                                <Link to={{ pathname: `/${coin.id}`, state: { name: coin.name } }}>
-                                    <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} alt={coin.id} />
-                                    {coin.name} &rarr;
-                                </Link>
-                                <div>
-                                    <span>
-                                        Rank: <strong>{coin.rank}</strong>
-                                    </span>
-                                    <span>
-                                        Name: <strong>{coin.name}</strong>
-                                    </span>
-                                    <span>
-                                        Symbol: <strong>{coin.symbol}</strong>
-                                    </span>
-                                    <span>
-                                        Type: <strong>{coin.type}</strong>
-                                    </span>
-                                </div>
-                                <div>{chartQuery.isLoading ? <LoaderComponent /> : <LineChart data={chartQuery.data} />}</div>
+                                {selected === coin.id && (
+                                    <>
+                                        <Link to={{ pathname: `/${coin.id}`, state: { name: coin.name } }}>
+                                            <Img src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} alt={coin.id} />
+                                            {coin.name} &rarr;
+                                        </Link>
+                                        <div>
+                                            <span>
+                                                Rank: <strong>{coin.rank}</strong>
+                                            </span>
+                                            <span>
+                                                Name: <strong>{coin.name}</strong>
+                                            </span>
+                                            <span>
+                                                Symbol: <strong>{coin.symbol}</strong>
+                                            </span>
+                                            <span>
+                                                Type: <strong>{coin.type}</strong>
+                                            </span>
+                                        </div>
+                                        <div>{chartQuery.isLoading ? <LoaderComponent /> : <LineChart data={chartQuery.data} />}</div>
+                                    </>
+                                )}
                             </details>
                         </Coin>
                     ))}

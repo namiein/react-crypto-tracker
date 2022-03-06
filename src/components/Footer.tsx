@@ -1,10 +1,11 @@
 import React from "react";
+import { Footer } from "assets/styles";
 
-export default function Footer() {
+export default function FooterComponent() {
     return (
-        <footer style={{ padding: 20, textAlign: "center", fontSize: 12, fontWeight: 600 }}>
+        <Footer>
             Made with ❤️
-            <p style={{ fontSize: 10, color: "#ffd100" }}>Created with Create-React-App, TypeScript, https://api.coinpaprika.com/, Styled-Components, react-router-dom v5, Apexcharts, react-helmet</p>
-        </footer>
+            <p>Created with Create-React-App, TypeScript, https://api.coinpaprika.com/, Styled-Components, react-router-dom v5, Apexcharts, react-helmet</p>
+        </Footer>
     );
 }

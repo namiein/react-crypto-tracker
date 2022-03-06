@@ -436,3 +436,15 @@ export const ChartWrapper = styled.div`
     background-color: white;
     border-radius: 10px;
 `;
+
+export const Footer = styled.footer`
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+
+    p {
+        font-size: 10px;
+        color: ${(props) => props.theme.accentColor};
+    }
+`;
